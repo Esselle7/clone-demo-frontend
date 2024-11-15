@@ -1,0 +1,22 @@
+<div class="upload-container">
+    <h2>Carica un Video</h2>
+    
+    <!-- Area di drop dei file -->
+    <ngx-file-drop 
+      (onFileDrop)="onFilesDropped($event)" 
+      [multiple]="false"
+      accept="video/*">
+      <ng-template ngx-file-drop-content-tmp>
+        <div class="drop-zone">
+          Trascina qui il file video oppure clicca per selezionare
+        </div>
+      </ng-template>
+    </ngx-file-drop>
+  
+    <!-- Visualizza il nome del file selezionato -->
+    <p *ngIf="videoFile">Video selezionato: {{ videoFile?.name }}</p>
+  
+    <!-- Pulsante per caricare il video -->
+    <button (click)="uploadVideo()" [disabled]="!videoFile">Carica Video</button>
+  </div>
+  
